@@ -1,0 +1,246 @@
+interactions:
+- request:
+    body: '{"max_tokens":1024,"messages":[{"role":"user","content":"How far is Amsterdam
+      from New York in kilometres?"}],"model":"claude-haiku-4-5-20251001","tools":[{"name":"compute_haversine_distance_km","description":"Great-circle
+      distance between two lat/lon points, in kilometres. Use this when the user asks
+      how far one location is from another.","input_schema":{"type":"object","properties":{"lat1":{"type":"number","description":"Latitude
+      of point 1, in decimal degrees."},"lon1":{"type":"number","description":"Longitude
+      of point 1, in decimal degrees."},"lat2":{"type":"number","description":"Latitude
+      of point 2, in decimal degrees."},"lon2":{"type":"number","description":"Longitude
+      of point 2, in decimal degrees."}},"required":["lat1","lon1","lat2","lon2"],"additionalProperties":false}}]}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '792'
+      Content-Type:
+      - application/json
+      Host:
+      - api.anthropic.com
+      User-Agent:
+      - Anthropic/Python 0.100.0
+      X-Stainless-Arch:
+      - x64
+      X-Stainless-Async:
+      - 'false'
+      X-Stainless-Lang:
+      - python
+      X-Stainless-OS:
+      - Linux
+      X-Stainless-Package-Version:
+      - 0.100.0
+      X-Stainless-Runtime:
+      - CPython
+      X-Stainless-Runtime-Version:
+      - 3.12.13
+      anthropic-version:
+      - '2023-06-01'
+      x-api-key:
+      - REDACTED
+      x-stainless-read-timeout:
+      - '600'
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-timeout:
+      - '600'
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3SSXUvDMBSG/0uu15HWdp29U4cXgqLTTVAkxOa4hqXJlo/BHP3vnpQVneJdz/u8
+        OR8vPZDWCFCkIrXiQUDScLkOSZ4USUazIqU0JSMiBRpat2I0vb+ZPzyWC3+3bFazJ9jty4vPeY4e
+        v99AdIFzfAUoWKOiwJ2TznPtUaqN9oBf1eth8HtjFAsOhimxDjjneu2ew1U5XRQmmy1vQcvLl/kW
+        XZq38V1t2k3wwBq+A+ukBib6MTWwdRubacSkOhDFfUqqIhufTcrJiCijsczH5zRPRxFmWNFxmWbT
+        HmKZlPmY0kmH+3KlwMYux22FtFB70nVvI+K82TAL3Bl9ekcPHGwD4Dak0kGpoyjAc6ncoIU+Keze
+        L8u8WYNGWNJpHF03wGrs76XR7NRBB45Y/MeGt3EAbBpowXLFivav/5umzW+KKZjgf0p9Ug7sTmLW
+        XsZ8SExecCv64D/AxsvZCgwibTzjOzybv+P/0HVfAAAA//8DAIdFgRlyAgAA
+    headers:
+      CF-RAY:
+      - 9f88ab898b669bd0-FRA
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 May 2026 13:04:25 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-organization-id:
+      - ecdf3661-18a6-44ff-a45e-1ce201da549d
+      anthropic-ratelimit-input-tokens-limit:
+      - '50000'
+      anthropic-ratelimit-input-tokens-remaining:
+      - '50000'
+      anthropic-ratelimit-input-tokens-reset:
+      - '2026-05-08T13:04:25Z'
+      anthropic-ratelimit-output-tokens-limit:
+      - '10000'
+      anthropic-ratelimit-output-tokens-remaining:
+      - '10000'
+      anthropic-ratelimit-output-tokens-reset:
+      - '2026-05-08T13:04:26Z'
+      anthropic-ratelimit-requests-limit:
+      - '50'
+      anthropic-ratelimit-requests-remaining:
+      - '49'
+      anthropic-ratelimit-requests-reset:
+      - '2026-05-08T13:04:26Z'
+      anthropic-ratelimit-tokens-limit:
+      - '60000'
+      anthropic-ratelimit-tokens-remaining:
+      - '60000'
+      anthropic-ratelimit-tokens-reset:
+      - '2026-05-08T13:04:25Z'
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - req_011Caq9bmuZjjTJgeFvNonjj
+      set-cookie:
+      - _cfuvid=arOIievrQEtfInp_6xc3zQOV_x01VOgSf3PnaSXkPoA-1778245464.5706878-1.0.1.1-zy4m1v9COaWxyhXWtMboGC1UqJtxuRoTZa9RZIhK_8k;
+        HttpOnly; SameSite=None; Secure; Path=/; Domain=api.anthropic.com
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      traceresponse:
+      - 00-4f3fe0ed6b24afc96605516ce18f1113-e90d2558b1875d3d-01
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '1174'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"max_tokens":1024,"messages":[{"role":"user","content":"How far is Amsterdam
+      from New York in kilometres?"},{"role":"assistant","content":[{"id":"toolu_01FksWuC78U5o2DVMeniBZRq","caller":{"type":"direct"},"input":{"lat1":52.3676,"lon1":4.9041,"lat2":40.7128,"lon2":-74.006},"name":"compute_haversine_distance_km","type":"tool_use"}]},{"role":"user","content":[{"type":"tool_result","tool_use_id":"toolu_01FksWuC78U5o2DVMeniBZRq","content":"5863.22"}]}],"model":"claude-haiku-4-5-20251001","tools":[{"name":"compute_haversine_distance_km","description":"Great-circle
+      distance between two lat/lon points, in kilometres. Use this when the user asks
+      how far one location is from another.","input_schema":{"type":"object","properties":{"lat1":{"type":"number","description":"Latitude
+      of point 1, in decimal degrees."},"lon1":{"type":"number","description":"Longitude
+      of point 1, in decimal degrees."},"lat2":{"type":"number","description":"Latitude
+      of point 2, in decimal degrees."},"lon2":{"type":"number","description":"Longitude
+      of point 2, in decimal degrees."}},"required":["lat1","lon1","lat2","lon2"],"additionalProperties":false}}]}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1136'
+      Content-Type:
+      - application/json
+      Cookie:
+      - _cfuvid=arOIievrQEtfInp_6xc3zQOV_x01VOgSf3PnaSXkPoA-1778245464.5706878-1.0.1.1-zy4m1v9COaWxyhXWtMboGC1UqJtxuRoTZa9RZIhK_8k
+      Host:
+      - api.anthropic.com
+      User-Agent:
+      - Anthropic/Python 0.100.0
+      X-Stainless-Arch:
+      - x64
+      X-Stainless-Async:
+      - 'false'
+      X-Stainless-Lang:
+      - python
+      X-Stainless-OS:
+      - Linux
+      X-Stainless-Package-Version:
+      - 0.100.0
+      X-Stainless-Runtime:
+      - CPython
+      X-Stainless-Runtime-Version:
+      - 3.12.13
+      anthropic-version:
+      - '2023-06-01'
+      x-api-key:
+      - REDACTED
+      x-stainless-read-timeout:
+      - '600'
+      x-stainless-retry-count:
+      - '0'
+      x-stainless-timeout:
+      - '600'
+    method: POST
+    uri: https://api.anthropic.com/v1/messages
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA3SRy2rDMBBFf8Voaexip3GTetdVIItS2kUbShGKNYmF9XClUZoQ/O8dh4S+6Eri
+        niMNVzoy4yRoVrNGiyghb4XqYj7Nq3xSTKqyKEqWMSVJMGHLi3KxXD09uJf4GJ6rZX87XS8OMOvJ
+        wUMPowUhiC1Q4J0eAxGCCigsUtQ4i0C7+vV48RH2IzktNbszAcFLYRIVEtH33u2VEQj6kKRplc1v
+        rpNOaWeArJCmycY7k9zDR7Jyvrtiw1vGArqeexDBWboQrOQYvWVnEOA9gm1oso1an0MJKJQOlyye
+        CtRHpmwfkaPrwBKcVyU1EE0LvKH7UTnLfxrFhROW/7HL2XEA9C0Y8ELzyvz1v2jZ/qZDxlzE71E5
+        ozbgd6oBjgo8lR+fXQovxx+0G/Bjcb4FR8g65GJHrcWafmkYPgEAAP//AwCWl4Y8CAIAAA==
+    headers:
+      CF-RAY:
+      - 9f88ab92288935e7-FRA
+      Connection:
+      - keep-alive
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - default-src 'none'; frame-ancestors 'none'
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 08 May 2026 13:04:26 GMT
+      Server:
+      - cloudflare
+      Transfer-Encoding:
+      - chunked
+      X-Robots-Tag:
+      - none
+      anthropic-organization-id:
+      - ecdf3661-18a6-44ff-a45e-1ce201da549d
+      anthropic-ratelimit-input-tokens-limit:
+      - '50000'
+      anthropic-ratelimit-input-tokens-remaining:
+      - '49000'
+      anthropic-ratelimit-input-tokens-reset:
+      - '2026-05-08T13:04:27Z'
+      anthropic-ratelimit-output-tokens-limit:
+      - '10000'
+      anthropic-ratelimit-output-tokens-remaining:
+      - '10000'
+      anthropic-ratelimit-output-tokens-reset:
+      - '2026-05-08T13:04:26Z'
+      anthropic-ratelimit-requests-limit:
+      - '50'
+      anthropic-ratelimit-requests-remaining:
+      - '49'
+      anthropic-ratelimit-requests-reset:
+      - '2026-05-08T13:04:27Z'
+      anthropic-ratelimit-tokens-limit:
+      - '60000'
+      anthropic-ratelimit-tokens-remaining:
+      - '59000'
+      anthropic-ratelimit-tokens-reset:
+      - '2026-05-08T13:04:26Z'
+      cf-cache-status:
+      - DYNAMIC
+      request-id:
+      - req_011Caq9bsmY4XoESxHCpL7eq
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains; preload
+      traceresponse:
+      - 00-8bd0ea4c7d69cbd9ea1262dc36bc1097-0bbffb84924b384d-01
+      vary:
+      - Accept-Encoding
+      x-envoy-upstream-service-time:
+      - '539'
+    status:
+      code: 200
+      message: OK
+version: 1
