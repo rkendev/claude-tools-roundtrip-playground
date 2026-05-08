@@ -14,6 +14,7 @@ from typing import Any
 from unittest.mock import MagicMock
 
 import pytest
+from anthropic import Anthropic
 
 from claude_tools_roundtrip_playground.playground import (
     MAX_ITERATIONS,
@@ -61,9 +62,14 @@ def test_round_trip_happy_path(capsys: pytest.CaptureFixture[str]) -> None:
     redacts the ``authorization`` and ``x-api-key`` headers so the
     cassette never embeds a real key.
     """
+    # Pass an explicit dummy-keyed client so cassette replay works in CI
+    # (no ANTHROPIC_API_KEY set). VCR intercepts the HTTP layer, but the
+    # SDK still validates auth at construction time.
+    offline_client = Anthropic(api_key="cassette-replay-dummy-key")
     text = run_roundtrip(
         "How far is Amsterdam from New York in kilometres?",
         model="claude-haiku-4-5-20251001",
+        client=offline_client,
     )
     captured = capsys.readouterr().out
     assert "stop_reason: tool_use" in captured
@@ -95,6 +101,18 @@ def test_iteration_cap_raises() -> None:
 
     # Sanity: we hit the cap exactly MAX_ITERATIONS times.
     assert fake_client.messages.create.call_count == MAX_ITERATIONS
+
+
+def test_unexpected_stop_reason_raises() -> None:
+    """A non-{tool_use, end_turn} stop_reason aborts the loop."""
+    fake_client = MagicMock()
+    weird = MagicMock()
+    weird.stop_reason = "max_tokens"
+    weird.content = []
+    fake_client.messages.create.return_value = weird
+
+    with pytest.raises(RoundTripIterationError, match=r"unexpected stop_reason"):
+        run_roundtrip("weird stop_reason", client=fake_client)
 
 
 @pytest.fixture(scope="module")
