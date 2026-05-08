@@ -15,6 +15,48 @@ small-projects portfolio. Companion to
 > Repo bootstrapped from my own `roy-ai-template@v0.5.0` starter; the
 > round-trip CLI is original.
 
+## Round-trip walkthrough
+
+```bash
+ANTHROPIC_API_KEY=sk-ant-... \
+  uv run python -m claude_tools_roundtrip_playground \
+    "How far is Amsterdam from New York in kilometres?"
+```
+
+Example output (trimmed for brevity):
+
+```
+[step 1] tool schema sent to Claude:
+{
+  "name": "compute_haversine_distance_km",
+  "description": "Great-circle distance between two lat/lon points...",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "lat1": {"type": "number"}, ...
+    },
+    "required": ["lat1", "lon1", "lat2", "lon2"],
+    "additionalProperties": false
+  }
+}
+
+[step 2] Claude's first response: stop_reason=tool_use, ...
+[step 3] executing tool locally: result=5863.32
+[step 4] tool_result sent back to Claude...
+[step 5] Claude's final response: stop_reason=end_turn
+  "Amsterdam is approximately 5,863 kilometres from New York..."
+```
+
+Why this matters: most "tool use" tutorials hide the protocol behind an
+SDK convenience method. This CLI makes every step of the round-trip
+visible so you can see (a) the JSON schema Claude actually receives,
+(b) what `stop_reason` controls the loop, (c) how `tool_result` plumbs
+back into the next request. The exam quizzes on these mechanics; the
+hiring conversations want to see you've worked through them.
+
+`make check` runs the round-trip test offline against the committed
+[VCR cassette](tests/unit/cassettes/test_playground/test_round_trip_happy_path.yaml) — no API key required for CI.
+
 ## Inherited template scaffolding (background)
 
 The sections below describe the upstream template's three-tier LLM
