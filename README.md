@@ -7,8 +7,8 @@ the API protocol level. Send a tool definition, watch Claude emit a
 `tool_use`, execute the tool, send the `tool_result` back, see Claude's
 final text. No SDK magic, no agent framework — just the protocol.
 
-Built as Artifact B of a Claude Certified Architect Foundations
-small-projects portfolio. Companion to
+Built as Artifact B of a small-projects portfolio exploring Claude's
+tool-use and MCP fundamentals. Companion to
 [claude-mcp-server-minimal](https://github.com/rkendev/claude-mcp-server-minimal)
 (Artifact A).
 
